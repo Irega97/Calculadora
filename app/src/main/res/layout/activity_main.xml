@@ -276,14 +276,15 @@
 
     <TextView
         android:id="@+id/pantalla"
-        android:layout_width="368dp"
-        android:layout_height="209dp"
+        android:layout_width="337dp"
+        android:layout_height="68dp"
         android:gravity="end"
         android:text="TextView"
         android:textSize="40dp"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
