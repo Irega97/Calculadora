@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         final Button btn_suma = findViewById(R.id.button_suma);
         final Button btn_resta = findViewById(R.id.button_resta);
         final Button btn_prod = findViewById(R.id.button_prod);
-        final Button btn_delete = findViewById(R.id.button_delete);
+        final Button btn_delete = findViewById(R.id.button_clear);
         final Button btn_division = findViewById(R.id.button_division);
         final Button btn_punto = findViewById(R.id.button_punto);
         final Button btn_sen = findViewById(R.id.button_sen);
@@ -61,6 +62,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 }
