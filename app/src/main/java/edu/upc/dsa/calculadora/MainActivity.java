@@ -170,5 +170,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btn_punto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (inicio) {
+                    pantalla.setText(pantalla.getText().toString() + btn_punto.getText().toString());
+                } else {
+                    pantalla.setText(btn_punto.getText().toString());
+                    inicio = true;
+                }
+            }
+        });
     }
 }
