@@ -340,7 +340,46 @@ public class MainActivity extends AppCompatActivity {
                             inicio=false;
                             decimal=false;
                         }
-
+                    }
+                    if (operacion == "cos"){
+                        if(unidad_angular == "DEG"){
+                            double deg = operacion1;
+                            double rad = Math.toRadians(deg);
+                            result = Math.cos(rad);
+                            pantalla.setText(decimales.format(result));
+                            operacion1=result;
+                            operacion = "";
+                            inicio=false;
+                            decimal=false;
+                        }
+                        else{
+                            double rad = operacion1;
+                            pantalla.setText(decimales.format(Math.tan(rad)));
+                            operacion1 = result;
+                            operacion = "";
+                            inicio=false;
+                            decimal=false;
+                        }
+                    }
+                    if (operacion == "sen"){
+                        if(unidad_angular == "DEG"){
+                            double deg = operacion1;
+                            double rad = Math.toRadians(deg);
+                            result = Math.tan(rad);
+                            pantalla.setText(decimales.format(result));
+                            operacion1=result;
+                            operacion = "";
+                            inicio=false;
+                            decimal=false;
+                        }
+                        else{
+                            double rad = operacion1;
+                            pantalla.setText(decimales.format(Math.tan(rad)));
+                            operacion1 = result;
+                            operacion = "";
+                            inicio=false;
+                            decimal=false;
+                        }
                     }
                 } else {
                     Toast toast1 = Toast.makeText(getApplicationContext(), "Haz una nueva operación", Toast.LENGTH_SHORT);
@@ -415,6 +454,64 @@ public class MainActivity extends AppCompatActivity {
                         operacion1 = Double.parseDouble(pantalla.getText().toString());
                         pantalla.setText("sin(" + operacion1 + ")");
                         operacion = "sen";
+                        inicio = false;
+                        decimal = false;
+                    }
+                }
+            }
+        });
+
+        btn_cos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(pantalla.getText().toString()== null || pantalla.getText().toString()=="" || !inicio){
+                    Toast toast1 = Toast.makeText(getApplicationContext(), "Función no valida, introduzca números",
+                            Toast.LENGTH_SHORT);
+                    toast1.setGravity(Gravity.CENTER_HORIZONTAL,0,0);
+                    toast1.show();
+                }
+                else if (Double.parseDouble(pantalla.getText().toString())<0)
+                {
+                    Toast toast1 = Toast.makeText(getApplicationContext(), "Función no valida, número negativo",
+                            Toast.LENGTH_SHORT);
+                    toast1.setGravity(Gravity.CENTER_HORIZONTAL,0,0);
+                    toast1.show();
+                }
+                else {
+                    igual = 0;
+                    if (operacion.equals("")) {
+                        operacion1 = Double.parseDouble(pantalla.getText().toString());
+                        pantalla.setText("cos(" + operacion1 + ")");
+                        operacion = "cos";
+                        inicio = false;
+                        decimal = false;
+                    }
+                }
+            }
+        });
+
+        btn_tan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(pantalla.getText().toString()== null || pantalla.getText().toString()=="" || !inicio){
+                    Toast toast1 = Toast.makeText(getApplicationContext(), "Función no valida, introduzca números",
+                            Toast.LENGTH_SHORT);
+                    toast1.setGravity(Gravity.CENTER_HORIZONTAL,0,0);
+                    toast1.show();
+                }
+                else if (Double.parseDouble(pantalla.getText().toString())<0)
+                {
+                    Toast toast1 = Toast.makeText(getApplicationContext(), "Función no valida, número negativo",
+                            Toast.LENGTH_SHORT);
+                    toast1.setGravity(Gravity.CENTER_HORIZONTAL,0,0);
+                    toast1.show();
+                }
+                else {
+                    igual = 0;
+                    if (operacion.equals("")) {
+                        operacion1 = Double.parseDouble(pantalla.getText().toString());
+                        pantalla.setText("tan(" + operacion1 + ")");
+                        operacion = "tan";
                         inicio = false;
                         decimal = false;
                     }
