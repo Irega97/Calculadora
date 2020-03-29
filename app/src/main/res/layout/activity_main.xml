@@ -25,6 +25,7 @@
             android:id="@+id/button_sen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#939191"
             android:gravity="center"
             android:text="sen"
             app:layout_column="0"
@@ -37,6 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:backgroundTint="#939191"
             android:text="cos"
             app:layout_column="1"
             app:layout_columnWeight="1"
@@ -49,6 +51,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="tan"
+            android:backgroundTint="#939191"
             app:layout_column="2"
             app:layout_columnWeight="1"
             app:layout_row="0"
@@ -61,6 +64,7 @@
             android:gravity="center"
             android:text="C"
             android:textColor="@android:color/holo_red_dark"
+            android:backgroundTint="#939191"
             app:layout_column="3"
             app:layout_columnWeight="1"
             app:layout_row="0"
@@ -103,6 +107,7 @@
             android:id="@+id/button_suma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#03A9F4"
             android:gravity="center"
             android:text="+"
             app:layout_column="3"
@@ -147,6 +152,7 @@
             android:id="@+id/button_resta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#03A9F4"
             android:gravity="center"
             android:text="-"
             android:textSize="20dp"
@@ -192,22 +198,12 @@
             android:id="@+id/button_prod"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#03A9F4"
             android:gravity="center"
             android:text="x"
             app:layout_column="3"
             app:layout_columnWeight="1"
             app:layout_row="3"
-            app:layout_rowWeight="1" />
-
-        <Button
-            android:id="@+id/button_grados"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="DEG"
-            app:layout_column="0"
-            app:layout_columnWeight="1"
-            app:layout_row="4"
             app:layout_rowWeight="1" />
 
         <Button
@@ -227,7 +223,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="."
-            app:layout_column="2"
+            android:backgroundTint="#939191"
+            app:layout_column="0"
             app:layout_columnWeight="1"
             app:layout_row="4"
             app:layout_rowWeight="1" />
@@ -236,6 +233,7 @@
             android:id="@+id/button_division"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#03A9F4"
             android:gravity="center"
             android:text="/"
             app:layout_column="3"
@@ -247,27 +245,39 @@
             android:id="@+id/button_igual"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="#F44336"
             android:gravity="center"
             android:text=" = "
-            app:layout_column="0"
-            app:layout_columnSpan="4"
+            app:layout_column="2"
             app:layout_columnWeight="1"
-            app:layout_row="5"
+            app:layout_row="4"
             app:layout_rowWeight="1" />
 
     </androidx.gridlayout.widget.GridLayout>
 
     <TextView
         android:id="@+id/pantalla"
-        android:layout_width="337dp"
-        android:layout_height="68dp"
+        android:layout_width="340dp"
+        android:layout_height="55dp"
         android:gravity="end"
-        android:text="TextView"
+        android:text="0"
         android:textSize="40dp"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/button_grados"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="67dp"
+        android:layout_height="39dp"
+        android:text="DEG"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        app:layout_constraintEnd_toEndOf="@+id/pantalla"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="@+id/pantalla"
+        app:layout_constraintTop_toTopOf="@+id/pantalla" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
