@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.text.DecimalFormat;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     boolean inicio;
     boolean decimal;
     String operacion="";
+    String unidad_angular="DEG";
+    DecimalFormat decimales = new DecimalFormat("#.###");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,35 +178,16 @@ public class MainActivity extends AppCompatActivity {
                 if (operacion.equals("")) {
                     operacion1 = Double.parseDouble(pantalla.getText().toString());
                     inicio = false;
+                    decimal=false;
                     operacion = "suma";
                 } else {
                     if (operacion.equals("suma")) {
                         operacion2 = Double.parseDouble(pantalla.getText().toString());
                         result = operacion1 + operacion2;
-                        pantalla.setText(String.valueOf(result));
+                        pantalla.setText(decimales.format(result));
                         operacion1 = result;
                         inicio=false;
-                    }
-                    if (operacion.equals("multi")) {
-                        operacion2 = Double.parseDouble(pantalla.getText().toString());
-                        result = operacion1 * operacion2;
-                        pantalla.setText(String.valueOf(result));
-                        operacion1 = result;
-                        inicio=false;
-                    }
-                    if (operacion.equals("resta")) {
-                        operacion2 = Double.parseDouble(pantalla.getText().toString());
-                        result = operacion1 - operacion2;
-                        pantalla.setText(String.valueOf(result));
-                        operacion1 = result;
-                        inicio=false;
-                    }
-                    if (operacion.equals("division")) {
-                        operacion2 = Double.parseDouble(pantalla.getText().toString());
-                        result = operacion1 / operacion2;
-                        pantalla.setText(String.valueOf(result));
-                        operacion1 = result;
-                        inicio=false;
+                        decimal=false;
                     }
                     operacion="suma";
                 }
@@ -217,38 +201,18 @@ public class MainActivity extends AppCompatActivity {
                 if (operacion == "") {
                     operacion1 = Double.parseDouble(pantalla.getText().toString());
                     inicio = false;
+                    decimal=false;
                     operacion = "resta";
                 } else {
-                    if (operacion.equals("suma")) {
-                        operacion2 = Double.parseDouble(pantalla.getText().toString());
-                        result = operacion1 + operacion2;
-                        pantalla.setText(String.valueOf(result));
-                        operacion1 = result;
-                        inicio=false;
-                    }
-                    if (operacion.equals("multi")) {
-                        operacion2 = Double.parseDouble(pantalla.getText().toString());
-                        result = operacion1 * operacion2;
-                        pantalla.setText(String.valueOf(result));
-                        operacion1 = result;
-                        inicio=false;
-                    }
                     if (operacion.equals("resta")) {
                         operacion2 = Double.parseDouble(pantalla.getText().toString());
                         result = operacion1 - operacion2;
-                        pantalla.setText(String.valueOf(result));
+                        pantalla.setText(decimales.format(result));
                         operacion1 = result;
                         inicio=false;
-                    }
-                    if (operacion.equals("division")) {
-                        operacion2 = Double.parseDouble(pantalla.getText().toString());
-                        result = operacion1 / operacion2;
-                        pantalla.setText(String.valueOf(result));
-                        operacion1 = result;
-                        inicio=false;
+                        decimal=false;
                     }
                     operacion="resta";
-
                 }
             }
         });
@@ -260,37 +224,18 @@ public class MainActivity extends AppCompatActivity {
                 if (operacion.equals("")) {
                     operacion1 = Double.parseDouble(pantalla.getText().toString());
                     inicio = false;
-                    operacion = "multi";
+                    decimal=false;
+                    operacion = "prod";
                 } else {
-                    if (operacion.equals("suma")) {
-                        operacion2 = Double.parseDouble(pantalla.getText().toString());
-                        result = operacion1 + operacion2;
-                        pantalla.setText(String.valueOf(result));
-                        operacion1 = result;
-                        inicio=false;
-                    }
-                    if (operacion.equals("multi")) {
+                    if (operacion.equals("prod")) {
                         operacion2 = Double.parseDouble(pantalla.getText().toString());
                         result = operacion1 * operacion2;
-                        pantalla.setText(String.valueOf(result));
+                        pantalla.setText(decimales.format(result));
                         operacion1 = result;
                         inicio=false;
+                        decimal=false;
                     }
-                    if (operacion.equals("resta")) {
-                        operacion2 = Double.parseDouble(pantalla.getText().toString());
-                        result = operacion1 - operacion2;
-                        pantalla.setText(String.valueOf(result));
-                        operacion1 = result;
-                        inicio=false;
-                    }
-                    if (operacion.equals("division")) {
-                        operacion2 = Double.parseDouble(pantalla.getText().toString());
-                        result = operacion1 / operacion2;
-                        pantalla.setText(String.valueOf(result));
-                        operacion1 = result;
-                        inicio=false;
-                    }
-                    operacion="multi";
+                    operacion="prod";
                 }
             }
         });
@@ -302,35 +247,16 @@ public class MainActivity extends AppCompatActivity {
                 if (operacion.equals("")) {
                     operacion1 = Double.parseDouble(pantalla.getText().toString());
                     inicio = false;
+                    decimal=false;
                     operacion = "division";
                 } else {
-                    if (operacion.equals("suma")) {
-                        operacion2 = Double.parseDouble(pantalla.getText().toString());
-                        result = operacion1 + operacion2;
-                        pantalla.setText(String.valueOf(result));
-                        operacion1 = result;
-                        inicio=false;
-                    }
-                    if (operacion.equals("multi")) {
-                        operacion2 = Double.parseDouble(pantalla.getText().toString());
-                        result = operacion1 * operacion2;
-                        pantalla.setText(String.valueOf(result));
-                        operacion1 = result;
-                        inicio=false;
-                    }
-                    if (operacion.equals("resta")) {
-                        operacion2 = Double.parseDouble(pantalla.getText().toString());
-                        result = operacion1 - operacion2;
-                        pantalla.setText(String.valueOf(result));
-                        operacion1 = result;
-                        inicio=false;
-                    }
                     if (operacion.equals("division")) {
                         operacion2 = Double.parseDouble(pantalla.getText().toString());
                         result = operacion1 / operacion2;
-                        pantalla.setText(String.valueOf(result));
+                        pantalla.setText(String.valueOf(decimales.format(result)));
                         operacion1 = result;
                         inicio=false;
+                        decimal=false;
                     }
                     operacion="division";
                 }
@@ -358,17 +284,17 @@ public class MainActivity extends AppCompatActivity {
                     if (operacion == "suma") {
                         operacion2 = Double.parseDouble(pantalla.getText().toString());
                         result = operacion1 + Double.parseDouble(pantalla.getText().toString());
-                        pantalla.setText(String.valueOf(result));
+                        pantalla.setText(decimales.format(result));
                         operacion1 = result;
                         operacion = "";
                         igual=1;
                         inicio=false;
                         decimal=false;
                     }
-                    if (operacion == "multi") {
+                    if (operacion == "prod") {
                         operacion2 = Double.parseDouble(pantalla.getText().toString());
                         result = operacion1 * Double.parseDouble(pantalla.getText().toString());
-                        pantalla.setText(String.valueOf(result));
+                        pantalla.setText(decimales.format(result));
                         operacion1 = result;
                         operacion = "";
                         igual=1;
@@ -378,7 +304,7 @@ public class MainActivity extends AppCompatActivity {
                     if (operacion == "resta") {
                         operacion2 = Double.parseDouble(pantalla.getText().toString());
                         result = operacion1 - Double.parseDouble(pantalla.getText().toString());
-                        pantalla.setText(String.valueOf(result));
+                        pantalla.setText(decimales.format(result));
                         operacion1 = result;
                         operacion = "";
                         igual=1;
@@ -388,7 +314,7 @@ public class MainActivity extends AppCompatActivity {
                     if (operacion == "division") {
                         operacion2 = Double.parseDouble(pantalla.getText().toString());
                         result = operacion1 / Double.parseDouble(pantalla.getText().toString());
-                        pantalla.setText(String.valueOf(result));
+                        pantalla.setText(decimales.format(result));
                         operacion1 = result;
                         operacion = "";
                         igual=1;
@@ -398,7 +324,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast toast1 = Toast.makeText(getApplicationContext(),"Ya has pulsado este boton.",Toast.LENGTH_SHORT);
+                    Toast toast1 = Toast.makeText(getApplicationContext(),"Haz una nueva operación",Toast.LENGTH_SHORT);
                     toast1.setGravity(Gravity.CENTER_VERTICAL,0,0);
                     toast1.show();
                 }
@@ -426,6 +352,35 @@ public class MainActivity extends AppCompatActivity {
                         Toast toast1 = Toast.makeText(getApplicationContext(), "Ya es un decimal", Toast.LENGTH_SHORT);
                         toast1.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                         toast1.show();
+                    }
+                }
+            }
+        });
+
+        btn_grados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(btn_grados.getText().toString()=="RAD"){
+                    if (inicio){
+                        btn_grados.setText("DEG");
+                        unidad_angular="DEG";
+                        double num = Double.parseDouble(pantalla.getText().toString());
+                        pantalla.setText(decimales.format(Math.toDegrees(num)));
+                    }
+                    else{
+                        btn_grados.setText("DEG");
+                        unidad_angular="DEG";
+                    }
+                } else {
+                    if (inicio){
+                        btn_grados.setText("RAD");
+                        unidad_angular = "RAD";
+                        double num = Double.parseDouble(pantalla.getText().toString());
+                        pantalla.setText(decimales.format(Math.toRadians(num)));
+                    }
+                    else{
+                        btn_grados.setText("RAD");
+                        unidad_angular="RAD";
                     }
                 }
             }
