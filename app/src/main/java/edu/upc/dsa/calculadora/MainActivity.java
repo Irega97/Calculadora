@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     double result;
     int igual=0;
     boolean inicio;
+    boolean decimal;
     String operacion="";
 
     @Override
@@ -346,6 +347,7 @@ public class MainActivity extends AppCompatActivity {
                 igual=0;
                 pantalla.setText(String.valueOf(0));
                 inicio=false;
+                decimal=false;
             }
         });
 
@@ -361,6 +363,7 @@ public class MainActivity extends AppCompatActivity {
                         operacion = "";
                         igual=1;
                         inicio=false;
+                        decimal=false;
                     }
                     if (operacion == "multi") {
                         operacion2 = Double.parseDouble(pantalla.getText().toString());
@@ -370,7 +373,7 @@ public class MainActivity extends AppCompatActivity {
                         operacion = "";
                         igual=1;
                         inicio=false;
-
+                        decimal=false;
                     }
                     if (operacion == "resta") {
                         operacion2 = Double.parseDouble(pantalla.getText().toString());
@@ -380,7 +383,7 @@ public class MainActivity extends AppCompatActivity {
                         operacion = "";
                         igual=1;
                         inicio=false;
-
+                        decimal=false;
                     }
                     if (operacion == "division") {
                         operacion2 = Double.parseDouble(pantalla.getText().toString());
@@ -390,7 +393,7 @@ public class MainActivity extends AppCompatActivity {
                         operacion = "";
                         igual=1;
                         inicio=false;
-
+                        decimal=false;
                     }
                 }
                 else
@@ -406,14 +409,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (inicio) {
-                    pantalla.setText(pantalla.getText().toString() + btn_punto.getText().toString());
+                    if (decimal == false) {
+                        pantalla.setText(pantalla.getText().toString() + btn_punto.getText().toString());
+                        decimal=true;
+                    } else{
+                        Toast toast1 = Toast.makeText(getApplicationContext(), "Ya es un decimal", Toast.LENGTH_SHORT);
+                        toast1.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                        toast1.show();
+                    }
                 } else {
-                    pantalla.setText(btn_punto.getText().toString());
-                    inicio = true;
+                    if (decimal == false) {
+                        pantalla.setText(btn_punto.getText().toString());
+                        inicio = true;
+                        decimal=true;
+                    } else {
+                        Toast toast1 = Toast.makeText(getApplicationContext(), "Ya es un decimal", Toast.LENGTH_SHORT);
+                        toast1.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                        toast1.show();
+                    }
                 }
             }
         });
-
-
     }
 }
